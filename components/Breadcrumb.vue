@@ -2,7 +2,7 @@
 	li(:class="{'is-active': active}")
 		a(:href="href")
 			template(v-if="icon")
-				icon(:icon="icon")
+				icon(:icon="icon", fixed-width)
 				span
 					slot
 
@@ -14,13 +14,13 @@
 	import Icon from "./icon";
 
 	export default {
+		components: {
+			Icon
+		},
 		props: {
 			icon: String,
 			href: String,
 			active: Boolean
-		},
-		components: {
-			Icon
 		}
 	};
 </script>
