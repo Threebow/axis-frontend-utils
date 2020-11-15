@@ -1,0 +1,13 @@
+{
+	"name": "@threebow/node-bulma-utils",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Threebow/node-bulma-utils.git"
+	},
+	"author": "Threebow",
+	"license": "MIT",
+	"dependencies": {
+		"axios": "^0.21.0"
+	}
+}
