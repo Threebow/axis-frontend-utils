@@ -1,0 +1,208 @@
+@import "~bulma/sass/utilities/all";
+
+/*---------------------------------------------------------------------------
+	Sizing
+---------------------------------------------------------------------------*/
+.is-max-height {
+	height: 100%;
+}
+
+
+/*---------------------------------------------------------------------------
+	Layout / tables
+---------------------------------------------------------------------------*/
+.has-aligned-rows td {
+	vertical-align: middle !important;
+}
+
+.is-same-height {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+
+/*---------------------------------------------------------------------------
+	Shape
+---------------------------------------------------------------------------*/
+.is-circular {
+	border-radius: 50%;
+}
+
+
+/*---------------------------------------------------------------------------
+	Color / visibility / effects
+---------------------------------------------------------------------------*/
+.has-background-dimmed {
+	background: darken($background-lighter, 5);
+}
+
+.is-opaque {
+	opacity: 1;
+}
+
+.has-no-opacity {
+	opacity: 0;
+}
+
+
+/*---------------------------------------------------------------------------
+	Text styling
+---------------------------------------------------------------------------*/
+.has-indent {
+	text-indent: 1em;
+}
+
+.has-word-wrap {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+
+	code {
+		width: 100%;
+	}
+}
+
+.is-heading, .table-container th {
+	vertical-align: middle;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 0.8rem;
+	color: rgba($text-strong, 0.75);
+}
+
+
+/*---------------------------------------------------------------------------
+	Text truncation
+---------------------------------------------------------------------------*/
+.has-text-truncated, .has-text-truncated-small, .has-text-truncated-large {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.has-text-truncated-small {
+	max-width: 15vw;
+}
+
+.has-text-truncated {
+	max-width: 35vw;
+}
+
+.has-text-truncated-large {
+	max-width: 50vw;
+}
+
+
+/*---------------------------------------------------------------------------
+	Animate inputs
+---------------------------------------------------------------------------*/
+.input, .textarea, .select, .CodeMirror {
+	transition: all 150ms;
+}
+
+
+/*---------------------------------------------------------------------------
+	Remove number increment/decrement buttons
+---------------------------------------------------------------------------*/
+$hide-number-input: true !default;
+
+@if $hide-number-input {
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	input[type=number] {
+		-moz-appearance: textfield;
+	}
+}
+
+
+/*---------------------------------------------------------------------------
+	Hide cloaked Vue elements
+---------------------------------------------------------------------------*/
+$hide-v-cloak: true !default;
+
+@if $hide-v-cloak {
+	[v-cloak] {
+		display: none;
+	}
+}
+
+
+/*---------------------------------------------------------------------------
+	Bulma spinner
+---------------------------------------------------------------------------*/
+.spinner {
+	@include loader;
+
+	@each $size in $dimensions {
+		&.is-#{$size}x#{$size} {
+			width: #{$size}px;
+			height: #{$size}px;
+		}
+	}
+}
+
+
+/*---------------------------------------------------------------------------
+	Fix option element styling
+---------------------------------------------------------------------------*/
+option {
+	color: $text-strong-inverse;
+
+	&[disabled] {
+		color: lighten($text-strong-inverse, 40);
+	}
+}
+
+
+/*---------------------------------------------------------------------------
+	Muted text (no search results, no content, etc.)
+---------------------------------------------------------------------------*/
+.has-text-muted {
+	color: $text;
+	opacity: 0.5;
+	font-size: 1.5rem;
+	font-style: italic;
+	text-align: center;
+	margin: 3rem 0;
+}
+
+
+/*---------------------------------------------------------------------------
+	Flex body
+---------------------------------------------------------------------------*/
+$has-flex-body: true !default;
+
+@if $has-flex-body {
+	html, body {
+		min-height: 100vh !important;
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+
+	html {
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		body {
+			display: flex;
+			flex-direction: column;
+
+			#app {
+				display: flex;
+				flex-direction: column;
+				flex: 1;
+
+				#content-wrapper {
+					flex: 1;
+				}
+
+				&.loading {
+					overflow: hidden;
+				}
+			}
+		}
+	}
+}
