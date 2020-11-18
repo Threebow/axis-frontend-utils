@@ -1,6 +1,6 @@
 module.exports = {
 	install(Vue) {
-		Vue.component("csrf", require("../components/CSRFTokenInput").default);
+		Vue.component("csrf", require("./components/CSRFTokenInput").default);
 
 		Vue.mixin({
 			computed: {

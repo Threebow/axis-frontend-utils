@@ -5,6 +5,9 @@
 		"type": "git",
 		"url": "git+https://github.com/Threebow/node-bulma-utils.git"
 	},
+	"scripts": {
+		"build": "node build.js"
+	},
 	"author": "Threebow",
 	"license": "MIT",
 	"dependencies": {
