@@ -1,0 +1,28 @@
+@import "~bulma/sass/utilities/all";
+
+/*---------------------------------------------------------------------------
+	Admin dashboard
+---------------------------------------------------------------------------*/
+$dashboard-sidebar-padding: 4rem !default;
+
+.dashboard {
+	display: flex;
+
+	@include touch {
+		flex-direction: column;
+	}
+
+	@include desktop {
+		flex-direction: row;
+	}
+
+	.dashboard-sidebar {
+		flex-shrink: 0;
+		background-color: $background-lighter;
+		padding: $dashboard-sidebar-padding;
+	}
+
+	.dashboard-body {
+		flex-grow: 1;
+	}
+}
