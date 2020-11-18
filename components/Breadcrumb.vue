@@ -11,12 +11,7 @@
 </template>
 
 <script>
-	import Icon from "./icon";
-
 	export default {
-		components: {
-			Icon
-		},
 		props: {
 			icon: String,
 			href: String,
