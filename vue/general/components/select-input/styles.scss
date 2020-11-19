@@ -1,0 +1,31 @@
+button.select-input-dropdown-trigger {
+	color: $input-color;
+	background-color: $input-background-color;
+	border-color: $input-border-color;
+	box-shadow: $input-shadow;
+
+	min-width: $dropdown-menu-min-width;
+
+	&:hover {
+		color: $input-hover-color;
+		border-color: $input-hover-border-color;
+	}
+
+	&:focus, .dropdown.is-active & {
+		color: $input-focus-color;
+		border-color: $input-focus-border-color;
+		box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
+	}
+
+	.icon {
+		margin-left: auto !important;
+	}
+}
+
+a.select-option-dropdown-item {
+	&[disabled] {
+		color: rgba($dropdown-item-color, 0.5);
+		background-color: transparent;
+		cursor: default;
+	}
+}
