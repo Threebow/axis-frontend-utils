@@ -6,12 +6,12 @@
 			.dropdown(:class="{'is-active': isActive, 'is-fullwidth': fullwidth}")
 				.dropdown-trigger
 					button.button.select-input-dropdown-trigger(ref="trigger", @click.prevent="toggle")
-						span(v-if="value") {{ buttonLabel }}
+						span(v-if="selectedValue") {{ buttonLabel }}
 						span.has-text-muted(v-else) ~ select a value ~
 						icon.is-small(icon="fas fa-angle-down")
 
 					select(:name="name", :required="required")
-						option(v-if="value", :value="value", selected)
+						option(v-if="selectedValue", :value="selectedValue", selected)
 
 				.dropdown-menu.select-input-dropdown-menu
 					.dropdown-content(ref="content")
