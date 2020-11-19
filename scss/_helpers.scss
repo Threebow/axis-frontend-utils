@@ -158,11 +158,10 @@ option {
 
 
 /*---------------------------------------------------------------------------
-	Muted text (no search results, no content, etc.)
+	Empty text (no search results, no content, etc.)
 ---------------------------------------------------------------------------*/
-.has-text-muted {
-	color: $text;
-	opacity: 0.5;
+.is-empty-text {
+	color: rgba($text, 0.5);
 	font-size: 1.5rem;
 	font-style: italic;
 	text-align: center;
