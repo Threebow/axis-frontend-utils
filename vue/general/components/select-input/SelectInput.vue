@@ -11,7 +11,7 @@
 						icon.is-small(icon="fas fa-angle-down")
 
 					select(:name="name", :required="required")
-						option(v-if="value", value="value", selected)
+						option(v-if="value", :value="value", selected)
 
 				.dropdown-menu.select-input-dropdown-menu
 					.dropdown-content(ref="content")
