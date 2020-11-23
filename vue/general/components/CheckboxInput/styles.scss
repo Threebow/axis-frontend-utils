@@ -1,5 +1,8 @@
 @import "../../../../scss/mixins";
 
+/*---------------------------------------------------------------------------
+	Checkbox
+---------------------------------------------------------------------------*/
 $checkbox-size: $control-height * 0.6 !default;
 $checkbox-background-color: $input-background-color !default;
 $checkbox-shadow: $input-shadow !default;
@@ -8,7 +11,7 @@ $checkbox-active-color: $primary !default;
 $checkbox-hover-border-color: $input-hover-border-color !default;
 $checkbox-disabled-background-color: $input-disabled-background-color !default;
 
-.custom-checkbox {
+.checkbox-input {
 	@include animateInput;
 
 	display: flex;
@@ -52,6 +55,61 @@ $checkbox-disabled-background-color: $input-disabled-background-color !default;
 
 		&.is-active {
 			color: $checkbox-active-color;
+		}
+	}
+}
+
+/*---------------------------------------------------------------------------
+	Switch
+---------------------------------------------------------------------------*/
+$switch-background-color: #b5b5b5 !default;
+$switch-active-color: $primary !default;
+$switch-height: $checkbox-size !default;
+$switch-width: $switch-height * 2 !default;
+
+$switch-inner-background-color: white !default;
+$switch-inner-ratio: 0.75 !default;
+
+$switch-inner-size: $switch-height * $switch-inner-ratio;
+$switch-start: $switch-height / 2 - $switch-inner-size / 2;
+
+.switch-input {
+	position: relative;
+
+	width: $switch-width;
+	height: $switch-height;
+
+	border-radius: $switch-height / 2;
+	cursor: pointer;
+
+	transition: 150ms background-color ease-in;
+	background-color: $switch-background-color;
+
+	&.is-active {
+		background-color: $switch-active-color;
+	}
+
+	&[disabled] {
+		opacity: 0.35;
+		cursor: not-allowed;
+	}
+
+	.switch-inner {
+		position: absolute;
+
+		width: $switch-inner-size;
+		height: $switch-inner-size;
+
+		background-color: $switch-inner-background-color;
+		border-radius: $switch-inner-size / 2;
+
+		top: $switch-start;
+
+		transition: 150ms left ease-in;
+		left: $switch-start;
+
+		&.is-active {
+			left: $switch-width - $switch-inner-size - $switch-start;
 		}
 	}
 }
