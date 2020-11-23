@@ -1,0 +1,57 @@
+@import "../../../../scss/mixins";
+
+$checkbox-size: $control-height * 0.6 !default;
+$checkbox-background-color: $input-background-color !default;
+$checkbox-shadow: $input-shadow !default;
+$checkbox-radius: $box-radius !default;
+$checkbox-active-color: $primary !default;
+$checkbox-hover-border-color: $input-hover-border-color !default;
+$checkbox-disabled-background-color: $input-disabled-background-color !default;
+
+.custom-checkbox {
+	@include animateInput;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: $checkbox-size;
+	height: $checkbox-size;
+
+	padding: 0;
+
+	background-color: $checkbox-background-color;
+	box-shadow: $checkbox-shadow;
+
+	border: 1px solid transparent;
+	cursor: pointer;
+
+	border-radius: $checkbox-radius;
+
+	.is-circular {
+		border-radius: $checkbox-size / 2;
+	}
+
+	&:hover {
+		border: 1px solid $checkbox-hover-border-color;
+	}
+
+	&[disabled] {
+		cursor: not-allowed;
+		border: 1px solid transparent;
+		background-color: $checkbox-disabled-background-color;
+	}
+
+	.icon {
+		flex-shrink: 0;
+		font-size: $checkbox-size * 0.5;
+
+		transition: color 150ms;
+
+		color: transparent;
+
+		&.is-active {
+			color: $checkbox-active-color;
+		}
+	}
+}
