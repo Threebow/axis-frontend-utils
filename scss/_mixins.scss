@@ -1,3 +1,11 @@
 @mixin animateInput {
 	transition: border-color 150ms, box-shadow 150ms;
 }
+
+@mixin heading {
+	vertical-align: middle;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 0.8rem;
+	color: rgba($text-strong, 0.75);
+}

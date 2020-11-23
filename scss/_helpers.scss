@@ -64,11 +64,7 @@
 }
 
 .is-heading, .table-container th {
-	vertical-align: middle;
-	text-transform: uppercase;
-	font-weight: 600;
-	font-size: 0.8rem;
-	color: rgba($text-strong, 0.75);
+	@include heading;
 }
 
 
