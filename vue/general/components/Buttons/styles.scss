@@ -1,0 +1,47 @@
+@import "../../../../scss/mixins";
+
+$button-group-spacing: 0.5rem !default;
+
+.button-group {
+	display: flex;
+
+	> label {
+		@include heading;
+		text-align: center;
+	}
+
+	&.is-centered {
+		justify-content: center;
+	}
+
+	&.is-opposite {
+		justify-content: flex-end;
+	}
+
+	&:not(.is-stack) {
+		flex-direction: row;
+		align-items: center;
+
+		> :not(:last-child) {
+			margin-right: $button-group-spacing;
+		}
+	}
+
+	&.is-stack {
+		flex-direction: column;
+
+		.button {
+			display: flex;
+			width: 100%;
+			justify-content: center;
+		}
+
+		> :not(:last-child) {
+			margin-bottom: $button-group-spacing;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: $block-spacing;
+		}
+	}
+}
