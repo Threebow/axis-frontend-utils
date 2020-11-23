@@ -3,7 +3,7 @@
 		input(type="hidden", :name="name", :value="selectedValue ? 1 : 0")
 
 		.control
-			.is-flex.is-flex-direction-row.is-align-items-center
+			.level-simple
 				.mr-2.is-flex-shrink-0(:class="[checkboxClass, activeClass]", :disabled="disabled", @click="toggle")
 					.switch-inner(v-if="this.switch", :class="activeClass")
 					icon(v-else, :class="activeClass", icon="fas fa-check")
