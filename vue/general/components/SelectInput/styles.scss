@@ -1,4 +1,8 @@
+@import "../../../../scss/mixins";
+
 button.select-input-dropdown-trigger {
+	@include animateInput;
+
 	color: $input-color;
 	background-color: $input-background-color;
 	border-color: $input-border-color;

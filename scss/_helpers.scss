@@ -96,7 +96,7 @@
 /*---------------------------------------------------------------------------
 	Animate inputs
 ---------------------------------------------------------------------------*/
-.input, .textarea, .select, .CodeMirror {
+.input, .textarea, select, .CodeMirror {
 	@include animateInput;
 }
 
