@@ -20,6 +20,14 @@ module.exports = {
 			methods: {
 				reload() {
 					window.location.reload(true);
+				},
+				formatDate(date, opts = {}) {
+					let formatter = new Intl.DateTimeFormat(undefined, {
+						dateStyle: !opts.timeOnly ?  (opts.compact ? "short" : "long") : undefined,
+						timeStyle: !opts.dateOnly ? "medium" : undefined
+					});
+
+					return formatter.format(new Date(date));
 				}
 			},
 			computed: {
