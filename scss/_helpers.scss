@@ -206,3 +206,17 @@ $has-flex-body: true !default;
 		}
 	}
 }
+
+
+/*---------------------------------------------------------------------------
+	Simple level class
+---------------------------------------------------------------------------*/
+.level-simple {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	figure {
+		flex-shrink: 0;
+	}
+}
