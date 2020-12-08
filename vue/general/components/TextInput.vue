@@ -1,5 +1,5 @@
 <template lang="pug">
-	.field(:class="{'is-fullwidth': fullwidth}")
+	.field
 		input-label(:label="label", :required="required")
 
 		.control(:class="{'has-icons-left': icon}")
@@ -55,10 +55,6 @@
 				type: String,
 				default: ""
 			},
-			fullwidth: {
-				type: Boolean,
-				default: false
-			},
 			type: {
 				type: String,
 				default: "text"
@@ -88,9 +84,3 @@
 		}
 	};
 </script>
-
-<style lang="scss" scoped>
-	.field.is-fullwidth {
-		width: 100%;
-	}
-</style>
