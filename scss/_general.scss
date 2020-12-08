@@ -1,0 +1,9 @@
+/*---------------------------------------------------------------------------
+	Fix fullwidth buttons
+---------------------------------------------------------------------------*/
+.button.is-fullwidth {
+	flex-grow: 1;
+	display: inline-flex;
+	justify-content: center;
+	width: 100%;
+}
