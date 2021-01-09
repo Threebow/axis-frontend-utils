@@ -11,7 +11,7 @@
 	"author": "Threebow",
 	"license": "MIT",
 	"dependencies": {
-		"axios": "^0.21.0",
+		"axios": "^0.21.1",
 		"bulma": "^0.9.1"
 	}
 }
