@@ -1,18 +1,18 @@
 <template lang="pug">
-	.submit-button-wrapper(:class="{'is-right': (isRight && !fullwidth), 'is-fullwidth': fullwidth}")
-		button.button(:class="{loading, [buttonClass]: true}", type="submit", :disabled="loading || disabled")
+	buttons(opposite, :stack="fullwidth")
+		slot(name="before")
+
+		button.button(:class="[buttonClass, {'is-loading': loading}]", :disabled="disabled || loading", type="submit")
 			slot
 				icon(icon="fas fa-save")
 				span Save
+
+		slot(name="after")
 </template>
 
 <script>
 	export default {
 		props: {
-			isRight: {
-				type: Boolean,
-				default: true
-			},
 			fullwidth: {
 				type: Boolean,
 				default: false
@@ -32,18 +32,3 @@
 		}
 	};
 </script>
-
-<style lang="scss" scoped>
-	.submit-button-wrapper {
-		display: flex;
-
-		&.is-right {
-			justify-content: flex-end;
-		}
-
-		&.is-fullwidth button {
-			flex: 1;
-			justify-content: center;
-		}
-	}
-</style>
