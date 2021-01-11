@@ -1,0 +1,44 @@
+@import "../../../../scss/mixins";
+@import "~simplemde/dist/simplemde.min.css";
+
+.markdown-editor-control {
+	.CodeMirror {
+		min-height: 6rem !important;
+		background-color: $input-background-color;
+		border-color: $input-border-color;
+		color: $input-color;
+		caret-color: $input-color;
+
+		cursor: text;
+
+		&:hover {
+			border-color: $input-hover-border-color;
+		}
+	}
+
+	.CodeMirror-focused {
+		border-color: $input-focus-border-color;
+		box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
+	}
+
+	.editor-toolbar {
+		background-color: $darker;
+		border: none;
+
+		a.fas {
+			color: $input-color !important;
+
+			&:hover {
+				color: $primary !important;
+				background-color: transparent;
+				border: none;
+			}
+
+			&.active {
+				color: $input-color !important;
+				background-color: $primary;
+				border: none;
+			}
+		}
+	}
+}

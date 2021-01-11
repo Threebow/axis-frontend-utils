@@ -12,6 +12,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"axios": "^0.21.1",
-		"bulma": "^0.9.1"
+		"bulma": "^0.9.1",
+		"simplemde": "^1.11.2"
 	}
 }
