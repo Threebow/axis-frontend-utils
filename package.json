@@ -13,6 +13,8 @@
 	"dependencies": {
 		"axios": "^0.21.1",
 		"bulma": "^0.9.1",
+		"dompurify": "^2.2.6",
+		"marked": "^1.2.7",
 		"simplemde": "^1.11.2"
 	}
 }
