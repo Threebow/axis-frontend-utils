@@ -1,16 +1,15 @@
 <template lang="pug">
 	.field
-		input(type="hidden", :name="name", :value="selectedValue ? 1 : 0")
+		input(v-bind="$attrs", type="hidden", :value="selectedValue ? 1 : 0")
 
 		.control
 			.level-simple
 				.mr-2.is-flex-shrink-0(:class="[checkboxClass, activeClass]", :disabled="disabled", @click="toggle")
 					.switch-inner(v-if="this.switch", :class="activeClass")
+					.checkbox-input-circular-inner(v-else-if="circular", :class="activeClass")
 					icon(v-else, :class="activeClass", icon="fas fa-check")
 
 				input-label(:label="label")
-
-			p.help(v-if="help") {{ help }}
 </template>
 
 <script>
@@ -21,7 +20,6 @@
 			};
 		},
 		props: {
-			name: String,
 			label: String,
 			value: {
 				type: Boolean,
@@ -38,8 +36,7 @@
 			disabled: {
 				type: Boolean,
 				default: false
-			},
-			help: String
+			}
 		},
 		watch: {
 			value(val) {

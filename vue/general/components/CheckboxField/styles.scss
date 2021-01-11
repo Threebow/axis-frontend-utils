@@ -10,6 +10,7 @@ $checkbox-radius: $box-radius !default;
 $checkbox-active-color: $primary !default;
 $checkbox-hover-border-color: $input-hover-border-color !default;
 $checkbox-disabled-background-color: $input-disabled-background-color !default;
+$checkbox-inner-size: $checkbox-size / 2 !default;
 
 .checkbox-input {
 	@include animateInput;
@@ -31,8 +32,8 @@ $checkbox-disabled-background-color: $input-disabled-background-color !default;
 
 	border-radius: $checkbox-radius;
 
-	.is-circular {
-		border-radius: $checkbox-size / 2;
+	&.is-circular {
+		border-radius: $checkbox-inner-size;
 	}
 
 	&:hover {
@@ -47,14 +48,27 @@ $checkbox-disabled-background-color: $input-disabled-background-color !default;
 
 	.icon {
 		flex-shrink: 0;
-		font-size: $checkbox-size * 0.5;
+		font-size: $checkbox-inner-size;
 
 		transition: color 150ms;
-
 		color: transparent;
 
 		&.is-active {
 			color: $checkbox-active-color;
+		}
+	}
+
+	.checkbox-input-circular-inner {
+		flex-shrink: 0;
+		width: $checkbox-inner-size;
+		height: $checkbox-inner-size;
+		border-radius: $checkbox-inner-size;
+
+		transition: background-color 150ms;
+		background-color: transparent;
+
+		&.is-active {
+			background-color: $checkbox-active-color;
 		}
 	}
 }

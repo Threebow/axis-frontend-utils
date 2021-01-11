@@ -8,7 +8,10 @@
 	export default {
 		props: {
 			label: String,
-			required: Boolean
+			required: {
+				type: Boolean,
+				default: false
+			}
 		}
 	};
 </script>
@@ -16,6 +19,10 @@
 <style lang="scss" scoped>
 	label {
 		display: flex;
-		align-items: center;
+		align-items: stretch;
+
+		.icon {
+			height: auto;
+		}
 	}
 </style>

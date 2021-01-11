@@ -1,23 +1,18 @@
 <template lang="pug">
-	.field
-		input-label(:label="label", :required="required")
+	.control
+		.dropdown(:class="{'is-active': isActive, 'is-expanded': expanded}")
+			.dropdown-trigger
+				button.button.select-control-dropdown-trigger(ref="trigger", :disabled="$attrs.disabled", @click.prevent="toggle")
+					span(v-if="selectedValue") {{ buttonLabel }}
+					span.has-text-muted(v-else) ~ select a value ~
+					icon.is-small(icon="fas fa-angle-down")
 
-		.control
-			.dropdown(:class="{'is-active': isActive, 'is-fullwidth': fullwidth}")
-				.dropdown-trigger
-					button.button.select-input-dropdown-trigger(ref="trigger", @click.prevent="toggle")
-						span(v-if="selectedValue") {{ buttonLabel }}
-						span.has-text-muted(v-else) ~ select a value ~
-						icon.is-small(icon="fas fa-angle-down")
+				select(v-bind="$attrs", ref="input")
+					option(v-if="selectedValue", :value="selectedValue", selected)
 
-					select(:name="name", :required="required")
-						option(v-if="selectedValue", :value="selectedValue", selected)
-
-				.dropdown-menu.select-input-dropdown-menu
-					.dropdown-content(ref="content")
-						slot
-
-		p.help(v-if="help") {{ help }}
+			.dropdown-menu.select-control-dropdown-menu
+				.dropdown-content(ref="content")
+					slot
 </template>
 
 <script>
@@ -30,18 +25,10 @@
 			};
 		},
 		props: {
-			label: String,
-			name: String,
-			help: String,
-			required: {
+			expanded: {
 				type: Boolean,
 				default: false
-			},
-			fullwidth: {
-				type: Boolean,
-				default: false
-			},
-			value: String
+			}
 		},
 		watch: {
 			selectedValue(val) {
@@ -90,8 +77,8 @@
 </script>
 
 <style lang="scss" scoped>
-	.dropdown.is-fullwidth {
-		&, .dropdown-trigger, .select-input-dropdown-trigger, .dropdown-menu {
+	.dropdown.is-expanded {
+		&, .dropdown-trigger, .select-control-dropdown-trigger, .dropdown-menu {
 			width: 100%;
 		}
 	}

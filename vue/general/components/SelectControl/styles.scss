@@ -1,6 +1,6 @@
 @import "../../../../scss/mixins";
 
-button.select-input-dropdown-trigger {
+button.select-control-dropdown-trigger {
 	@include animateInput;
 
 	color: $input-color;
@@ -19,6 +19,13 @@ button.select-input-dropdown-trigger {
 		color: $input-focus-color;
 		border-color: $input-focus-border-color;
 		box-shadow: $input-focus-box-shadow-size $input-focus-box-shadow-color;
+	}
+
+	&[disabled] {
+		background-color: $input-disabled-background-color;
+		border-color: $input-disabled-border-color;
+		box-shadow: none;
+		color: $input-disabled-color;
 	}
 
 	.icon {
