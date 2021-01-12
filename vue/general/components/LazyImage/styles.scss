@@ -1,0 +1,64 @@
+@import "~bulma/sass/utilities/all";
+
+.lazy-image {
+	position: relative;
+	overflow: hidden;
+
+	background-position: center center;
+	background-size: cover;
+
+	.spinner-container, img {
+		&:not(.loads-instantly) {
+			transition: opacity 250ms;
+		}
+	}
+
+	.spinner-container {
+		@include overlay;
+		@include flex-centered;
+
+		z-index: 1;
+		opacity: 1;
+
+		&.has-loaded {
+			opacity: 0;
+		}
+	}
+
+	.lazy-image-overlay {
+		@include overlay;
+		z-index: 3;
+	}
+
+	img {
+		@include overlay;
+
+		z-index: 2;
+		opacity: 0;
+
+		&.has-loaded {
+			opacity: 1;
+		}
+
+		&.is-cover {
+			object-fit: cover;
+		}
+
+		&.is-fit {
+			object-fit: contain;
+		}
+
+		&.is-fit, &.is-cover {
+			object-position: center center;
+		}
+
+		&.is-blurred {
+			transform: scale(1.15);
+			filter: blur(2px);
+		}
+
+		&.has-rounded-corners {
+			border-radius: $box-radius;
+		}
+	}
+}
