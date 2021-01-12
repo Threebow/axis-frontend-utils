@@ -22,14 +22,12 @@
 	height: 100%;
 }
 
-.is-flex-centered, .is-flex-centered-column {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.is-flex-centered {
+	@include flex-centered;
 }
 
 .is-flex-centered-column {
-	flex-direction: column;
+	@include flex-centered(column);
 }
 
 

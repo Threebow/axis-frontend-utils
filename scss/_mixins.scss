@@ -9,3 +9,10 @@
 	font-size: 0.8rem;
 	color: rgba($text-strong, 0.75);
 }
+
+@mixin flex-centered($direction: row) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: $direction;
+}
