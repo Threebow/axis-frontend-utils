@@ -10,6 +10,12 @@
 	color: rgba($text-strong, 0.75);
 }
 
+@mixin strong($size: 1.1rem) {
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: $size;
+}
+
 @mixin flex-centered($direction: row) {
 	display: flex;
 	justify-content: center;
