@@ -109,6 +109,14 @@ $table-styling: true !default;
 	@include heading;
 }
 
+.has-text-strikethrough {
+	text-decoration: line-through;
+}
+
+.has-text-shadow {
+	text-shadow: 1px 1px 1px rgba($darker, 0.8);
+}
+
 
 /*---------------------------------------------------------------------------
 	Text truncation
