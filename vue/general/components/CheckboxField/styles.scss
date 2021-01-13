@@ -11,7 +11,7 @@ $checkbox-disabled-background-color: $input-disabled-background-color !default;
 $checkbox-inner-size: $checkbox-size / 2 !default;
 
 .checkbox-input {
-	@include animateInput;
+	@include animate-input;
 
 	display: flex;
 	justify-content: center;

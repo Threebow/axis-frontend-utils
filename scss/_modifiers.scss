@@ -102,7 +102,7 @@
 	Animate inputs
 ---------------------------------------------------------------------------*/
 .input, .textarea, select, .CodeMirror {
-	@include animateInput;
+	@include animate-input;
 }
 
 
