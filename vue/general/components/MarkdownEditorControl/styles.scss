@@ -1,4 +1,6 @@
 .markdown-editor-control {
+	@import "~simplemde/dist/simplemde.min.css";
+
 	.CodeMirror {
 		min-height: 6rem !important;
 		background-color: $input-background-color;
