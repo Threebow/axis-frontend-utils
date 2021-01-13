@@ -22,3 +22,25 @@
 	align-items: center;
 	flex-direction: $direction;
 }
+
+
+/*---------------------------------------------------------------------------
+	Custom scrollbar
+---------------------------------------------------------------------------*/
+$custom-scrollbar-width: 0.4rem !default;
+
+@mixin custom-scrollbar {
+	&::-webkit-scrollbar {
+		width: $custom-scrollbar-width;
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: $custom-scrollbar-width / 2;
+		background-color: lighten($background-lighter, 5);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: $custom-scrollbar-width / 2;
+		background-color: lighten($background-lighter, 10);
+	}
+}
