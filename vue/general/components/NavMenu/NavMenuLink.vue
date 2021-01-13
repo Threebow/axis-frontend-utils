@@ -1,6 +1,6 @@
 <template lang="pug">
 	li
-		a(v-bind="$attrs", :class="{'is-active': active}")
+		a(v-bind="$attrs", :class="{'is-active': active}", @click="$emit('click', $event)")
 			icon.mr-1(v-if="icon", :icon="icon", fixed-width)
 			span
 				slot
