@@ -1,3 +1,5 @@
+const {toast} = require("bulma-toast");
+
 function toKebabCase(str) {
 	return str
 		.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
@@ -28,6 +30,19 @@ module.exports = {
 					});
 
 					return formatter.format(new Date(date));
+				},
+				toast(message, type = "is-success") {
+					toast({
+						message,
+						type: type + " is-toast",
+						dismissible: true,
+						duration: 3000,
+						opacity: 1,
+						animate: {
+							in: "fadeInRight",
+							out: "fadeOutRight"
+						}
+					});
 				}
 			},
 			computed: {
