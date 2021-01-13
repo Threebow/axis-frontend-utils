@@ -231,25 +231,15 @@ $has-flex-body: true !default;
 	html {
 		overflow-x: hidden;
 		overflow-y: auto;
+	}
 
-		body {
-			display: flex;
-			flex-direction: column;
+	body, #app {
+		display: flex;
+		flex-direction: column;
+	}
 
-			#app {
-				display: flex;
-				flex-direction: column;
-				flex: 1;
-
-				#content-wrapper {
-					flex: 1;
-				}
-
-				&.loading {
-					overflow: hidden;
-				}
-			}
-		}
+	#app, #content-wrapper {
+		flex: 1;
 	}
 }
 
