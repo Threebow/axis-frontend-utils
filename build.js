@@ -1,6 +1,5 @@
-const fs = require("fs"),
-	  path = require("path");
-
+const path = require("path"),
+	  fs   = require("fs");
 
 /*---------------------------------------------------------------------------
 	Compile imports to SCSS of external components into one file
