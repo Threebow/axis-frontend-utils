@@ -80,11 +80,11 @@ $table-styling: true !default;
 	background: darken($background-lighter, 5);
 }
 
-.is-opaque {
+.has-opacity-1 {
 	opacity: 1;
 }
 
-.has-no-opacity {
+.has-opacity-0 {
 	opacity: 0;
 }
 
