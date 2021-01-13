@@ -1,2 +1,2 @@
-# node-bulma-utils
-Classes, API wrappers, Vue components, etc. that I use between multiple projects so I don't have to copy and paste them
+# Axis Frontend Utils
+This repository packages several shared utilities that have been used in development of multiple Axis apps, including Vue components, classes, etc.

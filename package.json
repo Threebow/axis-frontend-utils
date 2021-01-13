@@ -1,15 +1,14 @@
 {
-	"name": "@threebow/node-bulma-utils",
+	"name": "@threebow/axis-frontend-utils",
 	"version": "1.0.0",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Threebow/node-bulma-utils.git"
+		"url": "git+https://github.com/Threebow/axis-frontend-utils.git"
 	},
 	"scripts": {
 		"build": "node build.js"
 	},
 	"author": "Threebow",
-	"license": "MIT",
 	"dependencies": {
 		"animate.css": "^4.1.1",
 		"axios": "^0.21.1",
