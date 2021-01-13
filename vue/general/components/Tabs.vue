@@ -31,7 +31,8 @@
 			tabs() {
 				if(this.isMounted) {
 					return this.$slots.default
-						.map(c => c.componentInstance);
+						.map(c => c.componentInstance)
+						.filter(c => c?.$options?._componentTag === "tab");
 				} else return [];
 			},
 			hasSlug() {
