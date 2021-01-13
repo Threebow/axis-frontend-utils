@@ -1,0 +1,94 @@
+<template lang="pug">
+	.tabs-container
+		.tabs(:class="tabListClass")
+			ul
+				li(v-for="(tab, idx) in tabs", :class="{'is-active': selectedTabIdx === idx}", @click="selectTab(idx, true)")
+					a {{ tab.name }}
+
+		.tabs-content(ref="tabContent")
+			slot
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				selectedTabIdx: -1,
+				isMounted: false
+			};
+		},
+		props: {
+			tabListClass: {
+				type: String,
+				default: "mb-1"
+			},
+			pushState: {
+				type: Boolean,
+				default: false
+			}
+		},
+		computed: {
+			tabs() {
+				if(this.isMounted) {
+					return this.$slots.default
+						.map(c => c.componentInstance);
+				} else return [];
+			},
+			hasSlug() {
+				return this.tabs
+					.every(t => t.slug);
+			},
+			selectedTab() {
+				return this.tabs[this.selectedTabIdx];
+			}
+		},
+		methods: {
+			selectTab(idx, save = false) {
+				this.selectedTabIdx = idx;
+
+				for(let i = 0; i < this.tabs.length; i++) {
+					this.tabs[i].active = this.selectedTabIdx === i;
+				}
+
+				if(save && this.hasSlug) {
+					if(this.pushState) {
+						history.pushState(null, null, "#" + this.selectedTab.slug);
+					} else {
+						history.replaceState(null, null, "#" + this.selectedTab.slug);
+					}
+				}
+			},
+			setTabFromHash() {
+				let tabIdx = 0;
+
+				if(this.hasSlug) {
+					let slug = window.location.hash.slice(1);
+
+					if(slug) {
+						tabIdx = this.tabs
+							.findIndex(t => t.slug === slug);
+					}
+				}
+
+				this.selectTab(tabIdx > -1 ? tabIdx : 0);
+			},
+			onPopState() {
+				this.setTabFromHash();
+			}
+		},
+		mounted() {
+			this.isMounted = true;
+			this.setTabFromHash();
+		},
+		created() {
+			if(this.pushState) {
+				window.addEventListener("popstate", this.onPopState);
+			}
+		},
+		destroyed() {
+			if(this.pushState) {
+				window.removeEventListener("popstate", this.onPopState);
+			}
+		}
+	};
+</script>
