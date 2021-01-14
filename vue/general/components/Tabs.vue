@@ -52,6 +52,7 @@
 		methods: {
 			selectTab(idx, save = false) {
 				this.selectedTabIdx = idx;
+				this.$emit("change", this.selectedTabIdx);
 
 				for(let i = 0; i < this.tabs.length; i++) {
 					this.tabs[i].active = this.selectedTabIdx === i;
