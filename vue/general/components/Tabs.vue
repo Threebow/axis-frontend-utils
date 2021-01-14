@@ -1,9 +1,15 @@
 <template lang="pug">
 	.tabs-container
-		.tabs(:class="tabListClass")
-			ul
-				li(v-for="(tab, idx) in tabs", :class="{'is-active': selectedTabIdx === idx}", @click="selectTab(idx, true)")
-					a {{ tab.name }}
+		template(v-if="$slots.level")
+			.level
+				.level-left
+					.level-item
+						tab-list(:tabs="tabs", :selected-tab-idx="selectedTabIdx", @change="selectTab($event, true)")
+				.level-right
+					slot(name="level")
+
+		template(v-else)
+			tab-list(:tabs="tabs", :selected-tab-idx="selectedTabIdx", @change="selectTab($event, true)")
 
 		.tabs-content(ref="tabContent")
 			slot
