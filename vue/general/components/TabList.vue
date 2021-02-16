@@ -2,7 +2,7 @@
 	.tabs(:class="tabListClass")
 		ul
 			li(v-for="(tab, idx) in tabs", :class="{'is-active': selectedTabIdx === idx}", @click="onTabClicked(idx)")
-				a(:href="tab.href") {{ tab.name }}
+				a(:href="tab.href", target="_blank") {{ tab.name }}
 </template>
 
 <script>
