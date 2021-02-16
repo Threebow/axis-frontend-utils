@@ -8,9 +8,16 @@ module.exports = {
 			computed: {
 				axios() {
 					if(!client) {
-						client = axios.create({
-							headers: options.csrf ? {"X-CSRF-Token": this.csrfToken} : {}
-						});
+						let headers = {
+							"Accept": "application/json",
+							"Content-Type": "application/json"
+						};
+
+						if(options.csrf) {
+							headers["X-CSRF-Token"] = this.csrfToken;
+						}
+
+						client = axios.create({headers});
 					}
 
 					return client;
