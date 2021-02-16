@@ -12,7 +12,8 @@
 		},
 		props: {
 			name: String,
-			slug: String
+			slug: String,
+			href: String
 		}
 	};
 </script>
