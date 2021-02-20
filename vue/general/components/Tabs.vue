@@ -4,7 +4,13 @@
 			.level
 				.level-left
 					.level-item
-						tab-list(:tabs="tabs", :selected-tab-idx="selectedTabIdx", @change="selectTab($event, true)")
+						tab-list(
+							:tabs="tabs",
+							:class="tabListClass",
+							:selected-tab-idx="selectedTabIdx",
+							@change="selectTab($event, true)"
+						)
+
 				.level-right
 					slot(name="level")
 

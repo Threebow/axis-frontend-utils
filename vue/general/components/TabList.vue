@@ -1,5 +1,5 @@
 <template lang="pug">
-	.tabs(:class="tabListClass")
+	.tabs
 		ul
 			li(v-for="(tab, idx) in tabs", :class="{'is-active': selectedTabIdx === idx}", @click="onTabClicked(idx)")
 				a(:href="tab.href", target="_blank") {{ tab.name }}
@@ -9,11 +9,7 @@
 	export default {
 		props: {
 			tabs: Array,
-			selectedTabIdx: Number,
-			tabListClass: {
-				type: String,
-				default: "mb-1"
-			}
+			selectedTabIdx: Number
 		},
 		methods: {
 			onTabClicked(idx) {
