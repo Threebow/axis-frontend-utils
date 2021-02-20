@@ -1,21 +1,20 @@
 <template lang="pug">
 	.tabs-container
-		template(v-if="$slots.level")
-			.level
-				.level-left
-					.level-item
-						tab-list(
-							:tabs="tabs",
-							:class="tabListClass",
-							:selected-tab-idx="selectedTabIdx",
-							@change="selectTab($event, true)"
-						)
+		.level(v-if="$slots.level", :class="tabListClass")
+			.level-left
+				.level-item
+					tab-list(:tabs="tabs", :selected-tab-idx="selectedTabIdx", @change="selectTab($event, true)")
 
-				.level-right
-					slot(name="level")
+			.level-right
+				slot(name="level")
 
-		template(v-else)
-			tab-list(:tabs="tabs", :selected-tab-idx="selectedTabIdx", @change="selectTab($event, true)")
+		tab-list(
+			v-else,
+			:class="tabListClass",
+			:tabs="tabs",
+			:selected-tab-idx="selectedTabIdx",
+			@change="selectTab($event, true)"
+		)
 
 		.tabs-content(ref="tabContent")
 			slot
