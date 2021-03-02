@@ -3,7 +3,7 @@
 		input-control(v-bind="$attrs", v-model="content", expanded, @enter="search")
 
 		.control(v-if="content.length > 0")
-			button.button.is-darker(@click="reset")
+			button.button(:class="resetButtonClass", @click="reset")
 				icon.is-small(icon="fas fa-times")
 
 		.control
@@ -26,6 +26,10 @@
 			redirectUrl: {
 				type: String,
 				default: window.location.href
+			},
+			resetButtonClass: {
+				type: [String, Object],
+				default: "is-dark"
 			}
 		},
 		methods: {
