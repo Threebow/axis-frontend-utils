@@ -22,6 +22,10 @@
 				default: false
 			}
 		},
+		model: {
+			prop: "page",
+			event: "change"
+		},
 		computed: {
 			pages() {
 				return Math.ceil(this.total / this.perPage);
@@ -35,6 +39,11 @@
 		},
 		methods: {
 			goto(page) {
+				if(this.$listeners.change) {
+					this.$emit("change", page - 1);
+					return;
+				}
+
 				let url = new URL(window.location.href);
 				url.searchParams.set("page", page);
 				document.location.href = url;
