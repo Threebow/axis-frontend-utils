@@ -30,6 +30,10 @@
 			resetButtonClass: {
 				type: [String, Object],
 				default: "is-dark"
+			},
+			reloadOnReset: {
+				type: Boolean,
+				default: true
 			}
 		},
 		methods: {
@@ -42,6 +46,10 @@
 			},
 			reset() {
 				this.content = "";
+
+				if(this.reloadOnReset) {
+					this.search();
+				}
 			}
 		},
 		mounted() {
